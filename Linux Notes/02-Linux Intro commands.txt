@@ -1,0 +1,327 @@
+Yesterday's session : What is Operating System ?
+------------------------------------------------
+
+-> Operating System is acting as mediator between users and computer hardware components
+
+-> Operating System is mandatory to use any computer
+
+-> OS provides environment to run other applications
+
+	(browser, notepad, paint, calc)
+
+-> The OS came into market in 1950
+
+-> Microsoft released it's first OS in 1981 (MS DOS)
+
+
+
+Windows OS
+----------
+-> Developed by Microsoft
+
+-> It is having GUI
+
+-> It is single user based Operating System
+
+-> It is commercial (paid)
+
+-> Less Security
+
+-> It is recommended for personal use
+
+
+Linux OS
+--------
+-> Linux is Community Based OS
+
+-> Linux is Free & Open Source
+
+-> Linux is Multi User Based OS
+
+-> High Security
+
+-> Recommended to use for Applications, Servers, Databases etc..
+
+
+Note: In realtime, we will use Linux OS only to setup infrastructure required to run our application
+
+
+-> Linux OS is not only for Administrators, even developers and testers also will use Linux OS in realtime to monitor our application and application servers.
+
+
+History Of Linux
+-----------------
+-> In 1991, a student 'Linus Torvalds' developed this Linux OS
+
+-> Linux Torvalds identified some challenges in UNIX OS and he suggested some changes 
+  for Unix OS but UNIX OS Team rejected 'Linux Torvalds 'suggestions
+
+-> Linus Torvalds used Minux OS to develop Linux 
+
+		Linus + Minux 
+
+-> First Two letters from his name and last 3 letters from Minux OS 
+
+		LI + NUX => LINUX
+
+-> Linus Torvalds released LINUX OS with source code into market so that anybody can modify LINUX OS thatys why it is called as Open Source Operating System.
+
+
+-> As Linux OS is open source, so many people and companies taken that Linux OS and modified according to their requirement and released into market with different names those are called as Linux Distributions.
+
+
+RHEL  -- RED HAT
+Ubuntu OS
+Cent OS
+Fedora
+Open SUSE
+Kali Linux
+Debian 
+
+Note : 200+ Linux Distributions are available in the market.
+
+
+
+Environment Setup
+-----------------
+
+=> We can setup Linux Machine in 2 ways
+
+1) By using Hypervisor with Virtual Box
+
+2) Cloud VM
+
+-> Documents shared to create AWS account & Linux VM Launching in AWS 
+   (Follow the given docs and complete the assignment)
+
+
+---------------------------------------------------------------------------------------------
+
+1) Create account in AWS (it will ask debit/credit card) - selected cards are accepted
+
+2) Create Linux VM using AWS EC2 service (download key pair)
+
+3) Convert .pem to .ppk using puttygen software
+
+4) Open putty S/w and connect to EC2 VM using IP & PPK file
+
+
+---------------------------------------------------------------------------------------------
+
+Linux VM is ready. It is up and running in AWS Cloud
+
+We are able to connect with Linux VM using Putty S/w
+
+-----------------------------------------------------------------------------------------------
+Linux Commands
+----------------------------------------------------------------------------------------------
+
+whoami : It will display currently logged in username
+
+pwd : present working directory
+
+date : To display current date
+
+cal : To display calendar
+
+
+-> In Linux everything everything will be represented as file
+
+-> We have 3 types of files in linux
+
+1) Ordinary File / Normal File 
+2) Directory File
+3) Link File
+
+-> The file which contains data is called as ordinary file
+
+-> Directory file is equal to folder (it can contain files and folders)
+
+-> The file which is having linking is called as Link File 
+
+
+=> touch : it is used to create empty file
+
+		$ touch f1.txt
+		$ touch f2.txt
+		$ touch f3.txt f4.txt
+	
+=> To display files we will use 'ls' command
+
+		$ ls
+
+=> To create a file with data we will use 'cat' command
+
+		$ cat > hello.txt
+		//write data
+		press CTRL + d (to save and exit)
+
+		$ cat hello.txt   (To display file data)
+
+		$ cat >> hello.txt (To append data in the file)
+		//write data
+		press CTRL + d (to save and exit)
+
+-> To create directory we will use 'mkdir' command
+
+		$ mkdir dirname
+
+
+-> To remove the file we will use 'rm' command
+
+		$ rm filename
+
+-> To remove empty directory we will use 'rmdir' command
+
+		$ rmdir dirname
+
+===============================================================================================
+    1  clear
+    2  whoami
+    3  pwd
+    4  date
+    5  cal
+    6  clear
+    7  touch f1.txt
+    8  ls
+    9  touch f2.txt
+   10  ls
+   11  touch f3.txt f4.txt
+   12  ls
+   13  cat > hello.txt
+   14  ls
+   15  cat hello.txt
+   16  cat > hello.txt
+   17  cat hello.txt
+   18  cat >> hello.txt
+   19  cat hello.txt
+   20  clear
+   21  ls
+   22  touch f5.txt
+   23  ls
+   24  cat > f6.txt
+   25  cat f6.txt
+   26  cat >> f6.txt
+   27  cat f6.txt
+   28  clear
+   29  mkdir movies
+   30  ls
+   31  cat f1.txt
+   32  cat > f1.txt
+   33  cat f1.txt
+   34  rm f2.txt
+   35  ls
+   36  rmdir movies
+   37  ls
+   38  history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

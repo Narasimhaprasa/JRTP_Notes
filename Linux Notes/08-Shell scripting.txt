@@ -1,0 +1,505 @@
+Before jumping into shell scripting, it’s necessary to understand what shell is.
+
+Bash Shell Scripting
+
+Bash
+----
+Bash is a command language interpreter. It is widely available on various operating systems and is a default command interpreter on most GNU/Linux systems. The name is an acronym for the ‘Bourne-Again Shell’.
+
+Shell
+-------
+-> Shell is responsible for reading commands provided by user
+
+-> Shell will verify command syntax and will give command as input for kernel 
+	(if command syntax is valid)
+
+-> Kernel will execute that command with Hardware
+
+-> Shell acts as mediator between user and kernel
+
+Types of shells
+---------------
+There are multiple types of shells are available
+
+1) Bourne Shell
+2) Bash Shell
+3) Korn Shell
+4) CShell
+5) TShell
+6) ZShell
+
+Note: The most commonly used shell in linux environment is BASH. It is more powerful than remaining shells.
+
+How to check default shell in our system
+
+$ echo $SHELL
+
+How to check all the shells available in our system
+
+$ cat /etc/shells
+
+Scripting
+----------
+Scripting allows for an automatic commands execution that would otherwise be executed interactively one-by-one.
+
+
+-> Open putty and execute below commands 
+$ date
+$ cal
+$ pwd
+$ whoami
+$ ls -l
+
+
+-> We have executed those commands using putty terminal which is a shell and interacting with kernel to execute above commands..
+
+-> Now, imagine that the execution of all the above commands is your daily task. Every day you are required to execute all of the above commands without fail as well as store the observed information
+
+-> Executing same commands daily is time waste process and there is a chance that we may do mistakes
+
+-> We can automate these commands execution by using scripting
+
+To see what is meant by scripting, use shell in combination with your favorite text editor eg. vi to create a new file called task.sh containing all the above commands, each on a separate line. 
+
+Once ready, make your new file executable using chmod command with an option +x. Lastly, execute your new script by prefixing its name with ./.
+
+-> Create a file task.sh
+	$ touch task.sh
+	
+-> Open file using vi editor and write some commands
+
+	$ vi task.sh
+	-> press 'i' for insert mode then type below commands
+	pwd
+	whoami
+	ls -l
+	- > press ESC and type :wq (to quit that file)
+
+-> Execute the script file using below command 
+		
+	$ ./task.sh
+	
+-> If execute permission not available, add that 
+
+	$ chmod u+x task.sh
+	
+What is Bash
+------------
+So far we have covered shell and scripting. What about Bash? Where does the bash fit in? As already mentioned, the bash is a default interpreter on many GNU/Linux systems, thus we have been using it even without realising. This is why our previous shell script works even without us defining bash as an interpreter. To see what is your default interpreter execute command echo $SHELL:
+
+
+=> To see what is your default interpreter execute command 		
+		$ echo $SHELL
+		
+#!/bin/bash (Sha-bang)
+
+=> Add the above line in every shell script
+
+---------------
+#! /bin/bash
+
+echo "Hi, I am : "$USER
+echo "My Home Directory Is ::" $HOME
+
+-> chmod u+x filename.sh
+
+-> ./filename.sh
+
+----------------------------
+#! /bin/bash
+
+echo "Enter Your Name"
+read name
+echo "Good Evening $name"
+--------------------------------
+#!/bin/bash
+echo "Enter Your Name?"
+read name
+echo "Enter Your Age?"
+read age
+if [ $age >= 18 ]
+then
+        echo "$name, You are eligible for marriage";
+else
+        echo "$name, You are not eligible for marriage";
+fi
+---------------------------------------------------------
+Variables
+
+-> Variables are placeholders to hold value
+-> Variables are key-value pairs
+-> In shell programming, there are no data types. Every value is trated as text type/String type
+
+-> All variables are divided into 2 types
+
+1) Environment Variables
+2) User Defined Variables
+
+Environment Variables
+---------------------
+-> These are predefined variables and mostly used internally by the system. Hence these variables also knows as System variables.
+
+-> We can get all environment variables information using 'env' or 'set' command.
+
+
+Note: Internally PS1 environment variable is responsible to display terminal prompt. By re-assigning the value we can change prompt.
+
+$PS1=ashokit
+
+
+User Defined Variables
+----------------------
+Based on our requirement we can define our own variables
+
+PLAYER = SACHIN
+echo $PLAYER You are my favorite player
+
+
+Rules To define variables
+-------------------------
+1) It is recommended to use only upper case letters
+2) If variable contains multiple words, seperate them using underscore (_)
+3) Variable name should not start with digit
+4) We should not user special symbols like -, @, # etc..
+
+
+Note: We can define read-only variables also
+
+$ A=100
+$ readonly A
+$ A = 300
+
+Note : If variable is read-only we can't perform re-assignment for that because it is constant.
+
+Variable Scopes
+--------------
+There are 3 scopes available for variables
+
+1) Session Scope (in terminal)
+2) User Scope (.bashrc file)
+3) System Scope (/etc/profile) (sudo gedit /etc/profile)
+
+-> Accessing value of variable is called variable substitution
+
+syntax : $variable-name or ${variablename}
+
+a=10
+b=20
+course=linux
+echo "values of a : $a"
+echo "values of b : $b"
+
+Note: Don't use single quote
+
+Command Line Arguments
+-----------------------
+./tesh.sh linux is easy
+
+We can access command line arguments in script like below
+
+$# - no.of args
+$0 - script name
+$1 - first arg
+$2 - second arg
+$* - all args
+
+echo $#
+echo $1
+
+
+Adding two numbers
+-----------------
+#!/bin/bash
+ 
+# this is a single line comment in bash
+echo Learn Bash Scripting
+ 
+a=2
+b=4
+# addition : this is another single line comment
+c=$(($a + $b))
+ 
+# echo result to console
+echo $a + $b = $c
+
+
+Multi Line Comments
+-------------------
+#!/bin/bash
+ 
+# this is a single line comment in bash
+echo Learn Bash Scripting
+ 
+<<COMMENT
+    This is a multiple line comment
+    In Bash Scripting
+COMMENT
+echo Good Day!
+ 
+<<COMMENT
+    This is a multiple line comment
+    End of the example
+COMMENT
+
+
+Sleep command in bash
+--------------------
+#!/bin/bash
+ 
+echo HH:MM:SS
+ 
+echo `date +%H:%M:%S`;
+sleep 3s
+echo `date +%H:%M:%S`;
+
+
+
+Shell Scripting if then else
+----------------------------
+The if then else condition loop states that if condition meets, output goes to if part otherwise it goes to else part.
+
+The word fi represents if loop termination .
+
+Syntax:
+
+Syntax of if then else is shown in the snapshot below,
+
+if [ condition ]
+then 
+echo stmts
+else 
+echo stmts
+
+Example
+--------
+echo "Enter your age"
+read age 
+
+if [ "$age" -ge 18 ]; then
+	echo "You are eligible to vote";
+else 
+	 echo "You are younger !!";
+	 
+fi
+
+
+if elif
+--------
+-> If we want to check more than one condition then you can use if-elif stmt
+
+if [ condtion 1 ]
+then
+	echo stmts
+
+elif [ condition 2 ]
+then 
+	 echo stmts
+	 
+else
+	 echo stmts
+	 
+Example
+---------
+echo "choose your color from red, blue, green"
+
+read color
+
+if [ $color == red ];
+then
+        echo "Your are cheerful";
+
+elif [ $color ==  blue ];
+then
+         echo "Your are lucky";
+
+else
+         echo "You are both";
+fi
+	 
+
+
+Case Statement
+---------------
+
+#!/bin/sh
+
+FRUIT="banana"
+
+case "$FRUIT" in
+   "apple") echo "Apple pie is quite tasty."
+   ;;
+   "banana") echo "I like banana nut bread."
+   ;;
+   "kiwi") echo "New Zealand is famous for kiwi."
+   ;;
+esac
+
+
+
+
+Shell Scripting for loop
+------------------------
+Syntax of for loop using in and list of values is shown below. This for loop contains a number of variables in the list and will execute for each item in the list. For example, if there are 10 variables in the list, then loop will execute ten times and value will be stored in varname.
+
+syntax
+------
+for ((cond1; cond2; cond3)
+do 
+    echo statements
+done
+
+example
+-------
+for ((i=1; i<=10; i++))
+do 
+echo "$i"
+done
+
+
+Shell Scripting while loop
+--------------------------
+Linux scripting while loop is similar to C language while loop. There is a condition in while. And commands are executed till the condition is valid. Once condition becomes false, loop terminates.
+
+
+syntax:
+-------
+while [ condition ]
+do 
+  commands
+done
+
+Example
+-------
+i=10;
+while [ $i -ge 0 ]
+do 
+  echo "Reverse Order $i" 
+  let i--;
+done  
+
+while infinite loop
+-------------------
+while true
+do
+echo "This is infinite loop... press ctrl+c to exit"
+
+done
+
+
+unitl loop
+------------
+count=10
+i=0
+ 
+until [ $i -gt $count ];
+do
+   echo "$i"
+   let i++
+done
+
+Difference Between While and Until Loops
+----------------------------------------
+The basic difference between While and Until loops is that: While loop stops when the condition is false, but, Until loop stops when the condition is true.
+
+
+
+Shell Functions
+---------------
+With the help of functions, overall functionality of a function can be divided into smaller or logical parts, which can be called to perform their task. It helps us to check our program part by part. We can reuse the function where ever we want.
+
+Syntax:
+----------
+
+function functionName () {  
+        Commands to be executed  
+}  
+
+Example
+-------
+#!/bin/bash
+
+#defining function
+function welcome(){
+   echo "Welcome to ashokit";
+}
+
+#calling function
+welcome
+
+
+passing parameters to function
+-------------------------------
+#!/bin/bash
+
+#defining function
+function welcome(){
+   echo "Welcome to $1";
+}
+
+#calling function
+welcome Linux
+welcome AWS
+welcome DevOps
+
+===============================
+
+
+Write a script to find greater of two numbers
+---------------------------------------
+echo "Enter First Number"
+read a
+echo "Enter Second Number"
+read b
+
+if [$a -gt $b]
+then 
+echo "Greater Number is $a"
+else 
+echo "Greater Number is $b"
+fi
+
+
+1) How to install packages in linux ?
+
+yum - Red Hat Linux
+apt - ubuntu
+
+2) How to check IP address of system 
+ifconfig
+
+3) How to check current version of OS 
+uname -v
+
+
+4) How to check available disc space ?
+df
+
+
+5) How to check status of particular service ?
+
+sudo systemctl status apache2
+
+
+6) How to monitor linux os ?
+df, free for memory monitoring
+top and htop for cupu monitoring
+
+7) How to see what all commands we have execute? 
+using history
+
+8) what is grep command ?
+
+9) What is the purpose of ping command 
+
+10) What are file permissions in Linux?
+
+11) What do you mean by Shell Script?
+
+12) Explain working of env command.
+
+
+
+
+
+
+
